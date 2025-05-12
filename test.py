@@ -81,8 +81,14 @@ class FODDetector:
             self.display_image(annotated_image)
     
     def reset(self):
-        if self.current_image is not None:
-            self.display_image(self.current_image)
+        # Clear image variables
+        self.image_path = None
+        self.current_image = None
+        
+        # Reset canvas to default size
+        self.canvas.config(width=800, height=600)
+        # Clear all items on canvas
+        self.canvas.delete("all")
     
     def display_image(self, image):
         # Resize image to fit canvas while maintaining aspect ratio
